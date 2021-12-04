@@ -105,7 +105,7 @@ const breeds = ["black", "colorao", "pinto", "white"];
 <div class="py-20 text-white bg-gray-900" id="claim">
     <div class="relative flex justify-center max-w-6xl px-5 py-5 mx-auto bg-gray-800 rounded-lg">
         <div class="absolute text-3xl font-bold -top-6">
-            Free Roosters to Claim
+            Free Roosters to Claim another
         </div>
         <ClaimableList class="w-full px-5" :limit="8" />
     </div>

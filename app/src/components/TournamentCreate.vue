@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { reactive, ref } from "@vue/reactivity";
 import { ethers } from "ethers";
-import { useContract } from "../composables/useContract"
+import { useContract } from "vue-ethers"
 import { AtButton } from "atmosphere-ui";
 import { onMounted } from "@vue/runtime-core";
 import EventCreate from "./EventCreate.vue";

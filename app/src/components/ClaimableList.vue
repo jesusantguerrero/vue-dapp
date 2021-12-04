@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onMounted, nextTick, computed } from "vue";
 import { ethers } from "ethers";
-import { useContract } from "../composables/useContract";
-import { getProvider } from "../composables/getProvider";
+import { useContract } from "vue-ethers";
+import { getProvider } from "vue-ethers";
 import { ref } from "vue";
 import { IPreToken } from "../types";
 import { AppState } from "../composables/AppState";

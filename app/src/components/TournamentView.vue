@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {  computed, ref, watch} from "vue";
 import { ethers } from "ethers";
-import { useContract } from "../composables/useContract"
+import { useContract } from "vue-ethers"
 import { AtButton } from "atmosphere-ui";
 import { IAsset } from "../types";
 import axios from "axios";
@@ -12,8 +12,8 @@ import { ICombat, IPlayer, ITournamentWithEvent } from "../types";
 import { useFight } from "../composables/useMoralis";
 import { AppState } from "../composables/AppState";
 import TournamentViewRow from "./TournamentViewRow.vue";
-import { ProviderState } from "../composables/useWeb3Provider";
-import { getProvider } from "../composables/getProvider";
+import { ProviderState } from "vue-ethers";
+import { getProvider } from "vue-ethers";
 
 const props = defineProps({
     id: {

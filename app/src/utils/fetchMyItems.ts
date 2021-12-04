@@ -2,8 +2,8 @@
 /* eslint-disable node/no-missing-import */
 /* eslint-disable node/no-extraneous-import */
 import { ethers } from "ethers";
-import { useContract } from "../composables/useContract";
-import { ProviderState } from "../composables/useWeb3Provider";
+import { useContract } from "vue-ethers";
+import { ProviderState } from "vue-ethers";
 
 export const fetchMyItems = async (signer: ethers.providers.JsonRpcSigner) => {
   const RoosterFight = useContract("RoosterFight", signer);

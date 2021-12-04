@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { AppState } from '../composables/AppState';
-import { useWeb3 } from '../composables/useWeb3Provider';
+import { useWeb3 } from 'vue-ethers';
 import WalletAccount from './basic/WalletAccount.vue';
 import NetworkBadge from './basic/NetworkBadge.vue';
 import { AtButton } from "atmosphere-ui";

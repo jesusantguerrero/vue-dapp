@@ -2,11 +2,11 @@
 import { ethers } from 'ethers';
 import { watch, computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { useContract } from '../composables/useContract';
+import { useContract } from 'vue-ethers';
 import { useMessage } from '../utils/useMessage';
 import Game from '../layouts/Game.vue';
 import { ICombat, INftDetails, ITournamentWithEvent } from '../types';
-import { getProvider } from '../composables/getProvider';
+import { getProvider } from 'vue-ethers';
 import { AppState } from '../composables/AppState';
 import MatchLive from '../components/MatchLive.vue';
 import MatchResults from '../components/MatchResults.vue';

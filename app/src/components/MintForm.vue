@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { AtButton } from "atmosphere-ui";
 import { ethers } from "ethers";
-import { useContract } from "../composables/useContract";
-import { getProvider } from "../composables/getProvider";
+import { useContract } from "vue-ethers";
+import { getProvider } from "vue-ethers";
 import { ref } from "vue";
 import { AppState } from "../composables/AppState";
 

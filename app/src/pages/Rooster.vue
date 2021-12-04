@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { watch, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { useContract } from '../composables/useContract';
+import { useContract } from 'vue-ethers';
 import Game from '../layouts/Game.vue';
 import { INftDetails } from '../types';
-import { getProvider } from '../composables/getProvider';
+import { getProvider } from 'vue-ethers';
 import RoosterCard from '../components/RoosterCard.vue';
 
 const route = useRoute();

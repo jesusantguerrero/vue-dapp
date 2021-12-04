@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, PropType, ref, reactive, computed, nextTick } from '@vue/runtime-core';
-import { useContract } from '../composables/useContract';
+import { useContract } from 'vue-ethers';
 import { INftDetails } from '../types';
 import { AtButton } from "atmosphere-ui";
 import { useMessage } from '../utils/useMessage';

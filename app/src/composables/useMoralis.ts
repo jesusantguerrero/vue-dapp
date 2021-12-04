@@ -3,8 +3,9 @@
 import Web3 from "web3/dist/web3.min";
 import Moralis from "moralis/dist/moralis";
 import { config } from "../config/";
+import contracts from "../contracts.json";
 import { useAppState } from "./useAppState";
-import { ProviderState, useWeb3Provider } from "./useWeb3Provider";
+import { ProviderState, useWeb3Provider } from "vue-ethers";
 import { AppState } from "./AppState";
 import { fetchMyItems } from "../utils/fetchMyItems";
 import { useMessage } from "../utils/useMessage";
@@ -20,8 +21,8 @@ const initUser = async (user: Moralis.User) => {
   ProviderState.account = user.attributes.accounts[0];
   AppState.isLoading = true;
   setTimeout(async () => {
-    if (AppState.signer) {
-      AppState.roosters = await fetchMyItems(AppState.signer);
+    if (ProviderState.signer) {
+      AppState.roosters = await fetchMyItems(ProviderState.signer);
       AppState.isLoading = false;
     }
   }, 1000);
@@ -43,7 +44,7 @@ export const initProvider = () => {
     }
   };
 
-  useWeb3Provider(init, logout);
+  useWeb3Provider(init, null, AppState, config, contracts.contracts);
 };
 
 const { setMessage } = useMessage();

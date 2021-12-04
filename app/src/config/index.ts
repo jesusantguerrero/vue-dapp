@@ -12,3 +12,5 @@ export const config = {
   rpcURL: getEnv("VITE_RPC_URL", "http://localhost:8545"),
   chainId: getEnv("VITE_CHAIN_ID", "1337"),
 };
+
+console.log(config);

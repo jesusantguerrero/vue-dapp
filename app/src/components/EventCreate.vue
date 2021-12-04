@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { reactive, PropType } from "vue";
 import { ethers } from "ethers";
-import { useContract } from "../composables/useContract"
+import { useContract } from "vue-ethers"
 import { AtButton, AtDateSelect } from "atmosphere-ui";
 import { ITournamentWithEvent } from "../types";
 

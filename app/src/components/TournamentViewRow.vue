@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {  computed, PropType, ref, onMounted } from "vue";
-import { useContract } from "../composables/useContract"
+import { useContract } from "vue-ethers"
 import { AtButton } from "atmosphere-ui";
 import { IPlayer } from "../types";
 import { AppState } from "../composables/AppState";

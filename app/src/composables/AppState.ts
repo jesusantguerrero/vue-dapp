@@ -1,14 +1,14 @@
+/* eslint-disable node/no-unpublished-import */
 import { ethers } from "ethers";
 import { watch } from "vue";
 import { Moralis } from "moralis";
 import { reactive, computed, ComputedRef } from "vue";
 import { INftDetails } from "../types";
 import { fetchMyItems } from "../utils/fetchMyItems";
-import { ProviderState } from "./useWeb3Provider";
+import { ProviderState } from "vue-ethers";
 
 export interface IAppState {
   user: null | Moralis.User;
-  signer: null | ethers.providers.JsonRpcSigner;
   roosters: INftDetails[];
   isLoading: boolean;
   currentNft: ComputedRef<null | INftDetails>;
@@ -18,7 +18,6 @@ export interface IAppState {
 
 export const AppState = reactive<IAppState>({
   user: null,
-  signer: null,
   roosters: [],
   isLoading: true,
   currentNft: computed<null | INftDetails>(() => {

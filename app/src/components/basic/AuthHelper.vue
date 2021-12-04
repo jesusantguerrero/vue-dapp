@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ProviderState } from '../../composables/useWeb3Provider';
+import { ProviderState } from 'vue-ethers';
 import { config } from '../../config';
 import { getChainName } from '../../utils';
 import WalletLogin from './WalletLogin.vue';

@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import {  ref } from "@vue/reactivity";
 import { ethers } from "ethers";
-import { useContract } from "../composables/useContract"
+import { useContract } from "vue-ethers"
 import { AtButton } from "atmosphere-ui";
 import { onMounted } from "@vue/runtime-core";
 import { useMessage } from "../utils/useMessage";
 import { format } from "date-fns";
 import TournamentLogo from "./TournamentLogo.vue";
-import { getProvider } from "../composables/getProvider";
+import { getProvider } from "vue-ethers";
 import { AppState } from "../composables/AppState";
-import { ProviderState } from "../composables/useWeb3Provider";
+import { ProviderState } from "vue-ethers";
 import PageLoader from "./animated/PageLoader.vue";
 
 const provider = getProvider();
