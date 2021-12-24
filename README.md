@@ -1,4 +1,4 @@
-# Vue Web3 Boilerplate
+# Web3 Boilerplate
 
 Advanced Hardhat + Moralis + Chainlink Oracles project setup for my web3 projects
 
