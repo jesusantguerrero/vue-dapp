@@ -1,36 +1,15 @@
 /* eslint-disable node/no-missing-import */
 /* eslint-disable node/no-unpublished-import */
-import { ethers } from "ethers";
 import { deployments } from "hardhat";
 import { DeployFunction } from "hardhat-deploy/dist/types";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { autoFundCheck, networkConfig } from "../helper-hardhat-config";
-import Moralis from "../_shared/moralis";
-
-const getAvailableTokens = async () => {
-  const Metadata = new Moralis.Query("Metadata");
-  const preTokens = await Metadata.find();
-  const breedTypes = ["Black", "Colorao", "Pinto", "White"];
-  return preTokens.map((preToken) => {
-    const attributes = preToken.get("attributes");
-    const breedType = attributes.find(
-      (attribute: Record<string, string>) => attribute.trait_type === "Breed"
-    ).value;
-
-    return {
-      id: preToken.get("edition"),
-      breed: breedTypes.findIndex((breed: string) => breed === breedType),
-      uri: preToken.get("image_url"),
-      claimed: false,
-    };
-  });
-};
+import { getContract } from "../utils/getContract";
 
 const SetupContract: DeployFunction = async (
   hre: HardhatRuntimeEnvironment
 ) => {
-  const { deploy, get } = deployments;
-  const { deployer } = await hre.getNamedAccounts();
+  const { get } = deployments;
   const chainId = (await hre.getChainId()) || "31337";
 
   interface IChainLink {
@@ -56,55 +35,24 @@ const SetupContract: DeployFunction = async (
   }
 
   const keyHash = networkConfig[chainId].keyHash || "";
-  const preMintedTokens = await getAvailableTokens();
-  const RoosterFight = await deploy("RoosterFight", {
-    from: deployer,
-    log: true,
-    args: [preMintedTokens],
-  });
 
-  const Tournament = await deploy("Tournament", {
-    from: deployer,
-    log: true,
-    args: [
-      chainLink.vrfCoordinatorAddress,
-      chainLink.linkTokenAddress,
-      keyHash,
-    ],
-  });
-
-  const tournament = await hre.ethers.getContractAt(
-    "Tournament",
-    Tournament.address
-  );
-
-  tournament.setNFTAddress(RoosterFight.address);
-  try {
-    // Create the initial tournament
-    await tournament.functions.addPrix(
-      "Rooster fight I",
-      "First tournament of rooster fight",
-      10,
-      ethers.utils.parseEther("0.1")
-    );
-    const startDate = new Date();
-    const endDate = startDate.getTime() + 1000 * 60 * 60 * 24 * 7;
-    await tournament.functions.addEvent(0, new Date().getTime(), endDate);
-  } catch (_e) {
-    console.log("Have to create the tournaments manually");
-  }
+  const greeting = await getContract("Greeting", [
+    chainLink.vrfCoordinatorAddress,
+    chainLink.linkTokenAddress,
+    keyHash,
+  ]);
 
   if (
     chainLink.linkTokenAddress &&
     (await autoFundCheck(
-      Tournament.address,
+      greeting.address,
       networkConfig[chainId].name,
       chainLink.linkTokenAddress,
       "Nothing more"
     ))
   ) {
     await hre.run("fund-link", {
-      contract: Tournament.address,
+      contract: greeting.address,
       linkaddress: chainLink.linkTokenAddress,
     });
   }

@@ -11,7 +11,7 @@ chai.use(chaiAsPromised);
 const { expect } = chai;
 
 describe("Tournament unit tests", async () => {
-  let tournament: ethers.Contract,
+  let greeting: ethers.Contract,
     linkToken: ethers.Contract,
     vrfCoordinator: ethers.Contract;
 
@@ -27,33 +27,14 @@ describe("Tournament unit tests", async () => {
 
     const networkId = await getNetworkIdFromName("localhost");
     const keyHash = networkConfig[networkId || 1].keyHash || "";
-    tournament = await getContract("Tournament", [
+    greeting = await getContract("Greeting", [
       vrfCoordinator.address,
       linkToken.address,
       keyHash,
     ]);
   });
 
-  it("Should create a prix", async () => {
-    await tournament.addPrix(
-      "Amateur League",
-      "Tournament for new cock fighters",
-      8,
-      ethers.utils.parseEther("0.05")
-    );
-    expect((await tournament.getPrixes()).length).to.be.equal(1);
-  });
-
-  it("Should create a tournament event", async () => {
-    await tournament.addPrix(
-      "Amateur League",
-      "Tournament for new cock fighters",
-      8,
-      ethers.utils.parseEther("0.05")
-    );
-    const startDate = new Date().getTime();
-    const endDate = startDate + 7;
-
-    expect(await tournament.addEvent(0, startDate, endDate));
+  it("Should say hello", async () => {
+    expect((await greeting.greet()).length).to.be("Hello");
   });
 });
