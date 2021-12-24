@@ -35,6 +35,10 @@ describe("Tournament unit tests", async () => {
   });
 
   it("Should say hello", async () => {
-    expect((await greeting.greet()).length).to.be("Hello");
+    expect(await greeting.greet()).to.be.equal("Hello World!");
+  });
+  it("Should set a new message", async () => {
+    await greeting.setMessage("Hello Ethereum!");
+    expect(await greeting.greet()).to.be.equal("Hello Ethereum!");
   });
 });

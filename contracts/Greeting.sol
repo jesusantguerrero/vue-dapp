@@ -8,6 +8,7 @@ contract Greeting is VRFConsumerBase {
     bytes32 internal keyHash;
     uint256 internal fee;   
     address internal contractOwner; 
+    string internal message = "Hello World!";
     mapping (bytes32 => uint) public requestIdToRandomNumber;
     
     constructor(address _vrfCoodinator, address _linkToken, bytes32 _keyhash) VRFConsumerBase(
@@ -17,6 +18,15 @@ contract Greeting is VRFConsumerBase {
         contractOwner = payable(msg.sender);
         keyHash = _keyhash;
         fee = 0.1 * 10 ** 18; // 0.1 LINK (Varies by network)
+    }
+    
+    function greet() public view returns (string memory) {
+        return message;
+    }
+
+    function setMessage(string memory _message) external{
+        require(msg.sender == contractOwner, "Only the contract owner can set the message");
+        message = _message;
     }
 
     function generate() public returns (bytes32) {
