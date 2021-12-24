@@ -53,9 +53,6 @@
   },
   "dependencies": {
     "@chainlink/contracts": "^0.2.2",
-    "@vueuse/core": "^7.0.3",
-    "@vueuse/motion": "^2.0.0-beta.4",
-    "animate.css": "^4.1.1",
     "install": "^0.13.0",
     "moralis": "0.0.134"
   }

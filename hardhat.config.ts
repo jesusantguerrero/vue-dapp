@@ -35,12 +35,6 @@ const config: HardhatUserConfig = {
       url: process.env.MUMBAI_URL || "https://rpc-mumbai.matic.today",
       accounts: safeAccounts(),
     },
-    ropsten: {
-      url:
-        process.env.ROPSTEN_URL ||
-        "https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
-      accounts: safeAccounts(),
-    },
     mainnet: {
       url: process.env.MAINNET_URL || "https://polygon-rpc.com/",
       accounts: safeAccounts(),

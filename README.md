@@ -1,23 +1,11 @@
-# RoosterFight
-[![codecov](https://codecov.io/gh/jesusantguerrero/chainlink-hackathon/branch/master/graph/badge.svg?token=Y153S4JEZL)](https://codecov.io/gh/jesusantguerrero/chainlink-hackathon)
-
-## Overview
-RoosterFight is a NFT game where you can claim and train a Rooster to fight and reach the top of the tournaments.
+# Vue Web3 Boilerplate
+## Overview of the project
 
 ## Inspiration
-I took inspiration from zed.run a virtual horse race game and a tradition of my country cockfight to bring a virtual game where users can have a like experience of raise and train a nice looking rooster and compete with others.
 
 ## What is does
 ### User Stories
 - User Story: I can connect my wallet using metamask/Moralis.
-
-- User Story: I can claim Roosters for free.
-
-- User Story: I can participate in tournaments.
-
-- User Story: I can fight with others roosters to win points.
-
-- User Story: I can win if at the end of the tourmament I have more points.
 
 ## Technical Details
 on the frontend i used: 
@@ -29,19 +17,8 @@ Blockchain Environment:
 - [Hardhat](https://hardhat.org/) - Flexible, extensible and fast Ethereum development environment for professionals.
 - [hardhat-deploy]() - Provided utilities for deployments and tasks
 - [Chainlink VRF]() - To get random numbers to generate damage
-- [Open Zepplin]() - and their contracts and utilities forn ERC721, String, SafeMath, Counters, Ownable and not reentrancy guard
-- [hashlip nft engine]() - to generate arts
-
+- [Open Zepplin]() - and their contracts and utilities forn ERC721, String, SafeMath, Counters, 
 ### The contracts
-
-| Contract                 | Description                                      |
-|--------------------------|-----------------------------------------         |
-| **RoosterBase.sol**      | Stores Attributes and Stats of tokens            |
-| **RoosterNFT.sol**       | Stores Mint and Claim and NFT logic              | 
-| **RoosterFight.sol**     | Stores helpers for gaming mechanics and inherit from NFT and Base | 
-| **TournamentBase.sol**   | Stores tournaments (prixes) and events (Prix edition) logic |
-| **Tournament.sol**       | Stores tournament matches and inherit from **TournamentBase.sol**|
-
 ## Installation
 
 ### Prerequisites
@@ -55,7 +32,6 @@ Blockchain Environment:
 
 ```shell
 node -v
-mongo --version
 ```
 #### Cloning the repo
 
@@ -63,7 +39,7 @@ mongo --version
 2. Clone this repo
 
 ```shell
-$ git clone https://github.com/jesusantguerrero/chainlink-hackathon.git
+$ git clone YOUR_REPO_URL
 ```
 
 ### setup
