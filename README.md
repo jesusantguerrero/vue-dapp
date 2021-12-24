@@ -1,24 +1,18 @@
 # Vue Web3 Boilerplate
-## Overview of the project
 
-## Inspiration
+Advanced Hardhat + Moralis + Chainlink Oracles project setup for my web3 projects
 
-## What is does
-### User Stories
-- User Story: I can connect my wallet using metamask/Moralis.
 
 ## Technical Details
-on the frontend i used: 
+[todo] frontend: 
 - [Vue.js 3](https://v3.vuejs.org/) as framework Framework
-- [Moralis](https://moralis.io/) to manage auth and store some off-chain data as well as IPFS provider for the assets
-- [ethers.js](https://docs.ethers.io/v5/) JS library for interacting with the Ethereum Blockchain and its ecosystem
 
 Blockchain Environment:
 - [Hardhat](https://hardhat.org/) - Flexible, extensible and fast Ethereum development environment for professionals.
 - [hardhat-deploy]() - Provided utilities for deployments and tasks
 - [Chainlink VRF]() - To get random numbers to generate damage
 - [Open Zepplin]() - and their contracts and utilities forn ERC721, String, SafeMath, Counters, 
-### The contracts
+
 ## Installation
 
 ### Prerequisites
