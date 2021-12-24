@@ -33,7 +33,7 @@ node -v
 2. Clone this repo
 
 ```shell
-$ git clone YOUR_REPO_URL
+$ git clone https://github.com/jesusantguerrero/web3-boilerplate
 ```
 
 ### setup
@@ -57,7 +57,7 @@ cp .env.example .env
 # Start the local blockchain in a separate terminal
 npm run contract:serve
 
-# Deploy the contracts to the local blockchain
+# re-Deploy the contracts to the local blockchain
 npm run contract:deploy
 
 # run the frontend SPA
